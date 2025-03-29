@@ -4,5 +4,32 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>To see more information about a specific genre, please use the bar at the top to choose a genre</p>
+    <br />
+    <p>Under here, you can see some of the current trending movies</p>
 </div>
+
+@model List<Movie>
+
+<h2>Trending Movies This Week</h2>
+
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var movie in Model)
+        {
+            <li>
+                <strong>@movie.Title</strong> (Rating: @movie.VoteAverage)
+                <br />
+                <img src="https://image.tmdb.org/t/p/w200/@movie.PosterPath" alt="@movie.Title" />
+                <p>@movie.Overview</p>
+                <p>Release Date: @(movie.ReleaseDate?.ToString("yyyy-MM-dd") ?? "Unknown")</p>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No movies found.</p>
+}
+

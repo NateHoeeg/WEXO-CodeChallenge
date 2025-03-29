@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35728.132 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEXO-CodeChallenge", "WEXO-CodeChallenge\WEXO-CodeChallenge.csproj", "{A3A3D747-90BD-4E33-9588-D37B799FC96D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEXO-CodeChallengeMVC", "WEXO-CodeChallengeMVC\WEXO-CodeChallengeMVC.csproj", "{E02B0C20-CE12-4837-A999-6C4196642E77}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WEXOCodeChallenge", "WEXOCodeChallenge\WEXOCodeChallenge.csproj", "{381F28CE-589C-4923-82FA-9F0534389D44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A3A3D747-90BD-4E33-9588-D37B799FC96D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3A3D747-90BD-4E33-9588-D37B799FC96D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3A3D747-90BD-4E33-9588-D37B799FC96D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3A3D747-90BD-4E33-9588-D37B799FC96D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E02B0C20-CE12-4837-A999-6C4196642E77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E02B0C20-CE12-4837-A999-6C4196642E77}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E02B0C20-CE12-4837-A999-6C4196642E77}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E02B0C20-CE12-4837-A999-6C4196642E77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{381F28CE-589C-4923-82FA-9F0534389D44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{381F28CE-589C-4923-82FA-9F0534389D44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{381F28CE-589C-4923-82FA-9F0534389D44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{381F28CE-589C-4923-82FA-9F0534389D44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

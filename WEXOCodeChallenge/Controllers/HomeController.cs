@@ -6,27 +6,23 @@ namespace WEXOCodeChallenge.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly MovieService _movieService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(MovieService movieService)
         {
-            _logger = logger;
+            _movieService = movieService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var authData = await _movieService.GetAuthenticationAsync();
+            return View("Index", authData);  // Pass data to a View
         }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> TrendingMovies()
         {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            List<Movie> movies = await _movieService.GetTrendingMoviesAsync();
+            return View(movies);
         }
     }
 }

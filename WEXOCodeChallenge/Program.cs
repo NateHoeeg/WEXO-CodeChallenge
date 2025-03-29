@@ -1,4 +1,8 @@
+using WEXOCodeChallenge;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddHttpClient<MovieService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
