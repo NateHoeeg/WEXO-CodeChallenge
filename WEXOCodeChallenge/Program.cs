@@ -2,10 +2,11 @@ using WEXOCodeChallenge;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddHttpClient<MovieService>();
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Register MovieService with HttpClient
+builder.Services.AddHttpClient<MovieService>();
 
 var app = builder.Build();
 
@@ -26,8 +27,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    pattern: "{controller=Home}/{action=TrendingMovies}/{id?}")
     .WithStaticAssets();
-
 
 app.Run();

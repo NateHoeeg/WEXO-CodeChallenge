@@ -22,7 +22,7 @@ namespace WEXOCodeChallenge.Controllers
         public async Task<IActionResult> TrendingMovies()
         {
             List<Movie> movies = await _movieService.GetTrendingMoviesAsync();
-            return View(movies);
+            return View("index", movies);
         }
     }
 }
