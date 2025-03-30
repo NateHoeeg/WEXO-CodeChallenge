@@ -1,0 +1,78 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@if (ViewBag.Genre == 28) {
+    <h1>Action movies</h1>
+    ViewData["Title"] = "Action Movies";
+}
+@if (ViewBag.Genre == 35)
+{
+	<h1>Comedy movies</h1>
+	ViewData["Title"] = "Comedy Movies";
+}
+@if (ViewBag.Genre == 53)
+{
+	<h1>Thriller movies</h1>
+	ViewData["Title"] = "Thriller Movies";
+}
+@if (ViewBag.Genre == 10752)
+{
+	<h1>War movies</h1>
+	ViewData["Title"] = "War Movies";
+}
+@if (ViewBag.Genre == 10749)
+{
+	<h1>Romance movies</h1>
+	ViewData["Title"] = "Romance Movies";
+}
+@if (ViewBag.Genre == 18)
+{
+	<h1>Drama movies</h1>
+	ViewData["Title"] = "Drama Movies";
+}
+@if (ViewBag.Genre == 80)
+{
+	<h1>Crime movies</h1>
+	ViewData["Title"] = "Crime Movies";
+}
+@if (ViewBag.Genre == 27)
+{
+	<h1>Horror movies</h1>
+	ViewData["Title"] = "Horror Movies";
+}
+@if (ViewBag.Genre == 99)
+{
+	<h1>Documentaries</h1>
+	ViewData["Title"] = "Documentaries";
+}
+
+
+
+
+@model List<Movie>
+
+<h2> movies</h2>
+
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var movie in Model)
+        {
+            <li>
+                <strong>@movie.Title</strong> (Rating: @movie.VoteAverage)
+                <br />
+                <img src="https://image.tmdb.org/t/p/w200/@movie.PosterPath" alt="@movie.Title" />
+                <p>@movie.Overview</p>
+                <p>Release Date: @(movie.ReleaseDate?.ToString("yyyy-MM-dd") ?? "Unknown")</p>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No movies found.</p>
+}
+
+
+

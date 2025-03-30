@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using WEXOCodeChallenge.Models;
@@ -23,6 +24,13 @@ namespace WEXOCodeChallenge.Controllers
         {
             List<Movie> movies = await _movieService.GetTrendingMoviesAsync();
             return View("index", movies);
+        }
+
+        public async Task<IActionResult> GetMoviesByGenre([FromQuery(Name = "genre")] string genre)
+        {
+            ViewBag.Genre = genre;
+            List<Movie> movies = await _movieService.GetMoviesByGenreAsync(genre);
+            return View("MovieLists", movies);
         }
     }
 }
