@@ -5,8 +5,9 @@ namespace WEXOCodeChallenge{
     public class MovieService
     {
         private readonly HttpClient _httpClient;
-        private const string ApiUrl = "https://api.themoviedb.org/3/authentication";
+        //API key for the movie database
         private const string ApiKey = "eb5fab1bb85aa81bcefd32c2d0ffc224";
+        //Bearer token for the movie database
         private const string Bearer = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlYjVmYWIxYmI" +
             "4NWFhODFiY2VmZDMyYzJkMGZmYzIyNCIsIm5iZiI6MTc0MzA4MTYxOS4wNDksInN1YiI6I" +
             "jY3ZTU1MDkzMzNhNzQzNDFlMzEwYTNlZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJ" +
@@ -15,17 +16,6 @@ namespace WEXOCodeChallenge{
         public MovieService(HttpClient httpClient)
         {
             _httpClient = httpClient;
-        }
-
-        public async Task<string> GetAuthenticationAsync()
-        {
-            var request = new HttpRequestMessage(HttpMethod.Get, ApiUrl);
-            request.Headers.Add("accept", "application/json");
-            request.Headers.Add("Authorization", $"Bearer {ApiKey}");
-
-            using var response = await _httpClient.SendAsync(request);
-            response.EnsureSuccessStatusCode();
-            return await response.Content.ReadAsStringAsync();
         }
 
         //Get the current trending movies (for front page)

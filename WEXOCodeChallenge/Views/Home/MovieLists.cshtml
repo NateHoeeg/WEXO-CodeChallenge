@@ -1,7 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-
+﻿<!-- Check for genreId for each wanted genre, to display correct title -->
 @if (ViewBag.Genre == "28") {
 	<h1>Action movies</h1>
 	ViewData["Title"] = "Action Movies";
@@ -48,16 +45,16 @@
 }
 
 
-
-
 @model List<Movie>
 
-
+<!-- Check if there are any movies in the genre, if so display them -->
 @if (Model.Any())
 {
-	//I know I don't actually have all the movies currently and only one page, 
-	//so the count it wrong. I will try to fix later if I can
+	<!--I know I don't actually have all the movies currently and only one page, 
+	so the count it wrong. I will try to fix later if I can-->
 	<p>There are: @Model.Count() movies in this genre</p>
+
+	<!--Loop to display gathered movies in the genre with some information about it-->
     <ul>
         @foreach (var movie in Model)
         {
@@ -71,6 +68,7 @@
         }
     </ul>
 }
+<!--If no movies are found, display message-->
 else
 {
     <p>No movies found.</p>

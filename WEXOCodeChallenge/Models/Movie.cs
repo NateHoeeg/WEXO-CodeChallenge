@@ -2,6 +2,7 @@
 
 namespace WEXOCodeChallenge.Models
 {
+    //Class to make movies so they can be shown in the view
     public class Movie
     {
         [JsonPropertyName("id")]

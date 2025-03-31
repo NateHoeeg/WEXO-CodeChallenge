@@ -2,6 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 
+<!-- Text at the top of the front page -->
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>To see more information about a specific genre, please use the bar at the top to choose a genre</p>
@@ -13,9 +14,11 @@
 
 <h2>Trending Movies This Week</h2>
 
+<!-- Check if there are any movies, if so display them -->
 @if (Model.Any())
 {
     <ul>
+        <!-- Loop to display trending movies and information about them -->
         @foreach (var movie in Model)
         {
             <li>
@@ -28,6 +31,7 @@
         }
     </ul>
 }
+<!-- If no movies, display message -->
 else
 {
     <p>No movies found.</p>
