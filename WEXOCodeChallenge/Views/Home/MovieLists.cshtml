@@ -3,8 +3,8 @@
 *@
 
 @if (ViewBag.Genre == "28") {
-    <h1>Action movies</h1>
-    ViewData["Title"] = "Action Movies";
+	<h1>Action movies</h1>
+	ViewData["Title"] = "Action Movies";
 }
 @if (ViewBag.Genre == "35")
 {
@@ -52,10 +52,12 @@
 
 @model List<Movie>
 
-<h2> movies</h2>
 
 @if (Model.Any())
 {
+	//I know I don't actually have all the movies currently and only one page, 
+	//so the count it wrong. I will try to fix later if I can
+	<p>There are: @Model.Count() movies in this genre</p>
     <ul>
         @foreach (var movie in Model)
         {
