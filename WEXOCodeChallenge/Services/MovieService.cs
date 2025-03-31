@@ -61,5 +61,32 @@ namespace WEXOCodeChallenge{
         }
 
 
+        public async Task<Movie> GetMovieDetailsAsync(string genreId)
+        {
+            var requestUri = $"https://api.themoviedb.org/3/movie/{genreId}";
+            var request = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri(requestUri),
+                Headers =
+        {
+            { "accept", "application/json" },
+            { "Authorization", $"Bearer {Bearer}" },
+        },
+            };
+
+            using var response = await _httpClient.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+
+            var responseBody = await response.Content.ReadAsStringAsync();
+            var movieResponse = JsonSerializer.Deserialize<MovieResponse>(responseBody, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+            List<Movie> movies = movieResponse?.Results ?? new List<Movie>();
+
+            return movies.First();
+        }
+
     }
 }

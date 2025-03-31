@@ -65,6 +65,9 @@
                 <p>@movie.Overview</p>
                 <p>Release Date: @(movie.ReleaseDate?.ToString("yyyy-MM-dd") ?? "Unknown")</p>
 				<!-- Add button here to direct you to a page about the specific movie, I'm just not sure how -->
+				<form method="GetMovieDetails">
+					<button type="submit">More information</button>	
+				</form>
             </li>
         }
     </ul>

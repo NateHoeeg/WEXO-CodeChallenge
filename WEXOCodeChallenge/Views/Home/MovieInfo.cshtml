@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model List<Movie>
+
+@{
+	ViewData["Title"] = "Info about " + Model.First().Title;
+}
+
+
+<!-- Check if there are any movies in the genre, if so display them -->
+@if (Model.Any())
+{
+    <!--I know I don't actually have all the movies currently and only one page,
+    so the count it wrong. I will try to fix later if I can-->
+    <p>There are: @Model.Count() movies in this genre</p>
+
+    <!--Loop to display gathered movies in the genre with some information about it-->
+    <ul>
+        @foreach (var movie in Model)
+        {
+            <li>
+                <strong>@movie.Title</strong> (Rating: @movie.VoteAverage)
+                <br />
+                <img src="https://image.tmdb.org/t/p/w200/@movie.PosterPath" alt="@movie.Title" />
+                <p style="background-image: url('https://image.tmdb.org/t/p/w200/@movie.BackdropPath')"></p>
+                <p>@movie.Overview</p>
+                <p>Release Date: @(movie.ReleaseDate?.ToString("yyyy-MM-dd") ?? "Unknown")</p>
+                <!-- For now it only shows the genre ID's, next step is to show genre names, but as written
+                    in the gerne class, I'm having trouble with that
+                -->
+                <p>Genres: @movie.Genres</p>
+                
+            </li>
+        }
+    </ul>
+}
+<!--If no movies are found, display message-->
+else
+{
+<p>No movies found.</p>
+}
