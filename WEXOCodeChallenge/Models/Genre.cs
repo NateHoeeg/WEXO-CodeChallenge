@@ -1,16 +1,19 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Security.Cryptography;
+using System.Text.Json.Serialization;
 
 namespace WEXOCodeChallenge.Models
 {
     public class Genre
     {
-        //So far, this class isn't used because I don't know exactly how to do what 
-        //I did with the movies for the genre at well.
-        [JsonPropertyName("Id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        [JsonPropertyName("Name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; }
 
+        public override string? ToString()
+        {
+            return Name + " ";
+        }
     }
 }

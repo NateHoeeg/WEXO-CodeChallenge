@@ -5,6 +5,6 @@ namespace WEXOCodeChallenge.Models
     public class GenreResponse
     {
         [JsonPropertyName("results")]
-        public List<Genre> Results { get; set; }
+        public List<Genre> Genres { get; internal set; }
     }
 }

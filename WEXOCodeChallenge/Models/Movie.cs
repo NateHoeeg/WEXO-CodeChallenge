@@ -30,9 +30,9 @@ namespace WEXOCodeChallenge.Models
         public string BackdropPath { get; set; }
 
         [JsonPropertyName("genre_ids")]
-        public List<int> Genres { get; set; }
+        public List<int> GenresIds { get; set; }
+        public List<Genre> Genres { get; internal set; }
 
-        
     }
 }
 

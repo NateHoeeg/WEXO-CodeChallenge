@@ -59,13 +59,14 @@
         @foreach (var movie in Model)
         {
             <li>
-				<form action="GetMovieDetails" method="get" id="OneMovie">
+				<form action="/Home/GetMovieDetails" method="get">
 					<strong>@movie.Title</strong> (Rating: @movie.VoteAverage)
 					<br />
 					<img src="https://image.tmdb.org/t/p/w200/@movie.PosterPath" alt="@movie.Title" />
 					<p>@movie.Overview</p>
 					<p>Release Date: @(movie.ReleaseDate?.ToString("yyyy-MM-dd") ?? "Unknown")</p>
-					<button type="submit" form="OneMovie" value="@movie.Id">More information</button>	
+					<input type="hidden" name="movieId" value="@movie.Id" />
+					<button type="submit">More information</button>	
 				</form>
             </li>
         }
