@@ -123,7 +123,7 @@ namespace WEXOCodeChallenge{
             response.EnsureSuccessStatusCode();
 
             var responseBody = await response.Content.ReadAsStringAsync();
-            var genreResponse = JsonSerializer.Deserialize<GenreResponse>(response, new JsonSerializerOptions
+            var genreResponse = JsonSerializer.Deserialize<GenreResponse>(responseBody, new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true
             });
