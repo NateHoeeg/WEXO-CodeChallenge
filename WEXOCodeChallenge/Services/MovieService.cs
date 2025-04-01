@@ -61,9 +61,9 @@ namespace WEXOCodeChallenge{
         }
 
 
-        public async Task<Movie> GetMovieDetailsAsync(string genreId)
+        public async Task<Movie> GetMovieDetailsAsync(string movieId)
         {
-            var requestUri = $"https://api.themoviedb.org/3/movie/{genreId}";
+            var requestUri = $"https://api.themoviedb.org/3/movie/{movieId}";
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,

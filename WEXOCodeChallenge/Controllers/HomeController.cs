@@ -34,10 +34,9 @@ namespace WEXOCodeChallenge.Controllers
             return View("MovieLists", movies);
         }
 
-        public async Task<IActionResult> GetMovieDetails(Movie movie)
+        public async Task<IActionResult> GetMovieDetails(int movieId)
         {
-            int id = movie.Id;
-            Movie specificMovie = await _movieService.GetMovieDetailsAsync(id + "");
+            Movie specificMovie = await _movieService.GetMovieDetailsAsync(movieId + "");
             return View("MovieInfo", specificMovie);
         }
     }
