@@ -47,7 +47,9 @@
 
 @model List<Movie>
 
-<!-- Check if there are any movies in the genre, if so display them -->
+<!-- Check if there are any movies in the genre, if so display them 
+(This code snippet could probably have been generalised with the one in "MovieInfo" and "Index")
+-->
 @if (Model.Any())
 {
 	<!--I know I don't actually have all the movies currently and only one page, 
@@ -66,6 +68,7 @@
 					<p>@movie.Overview</p>
 					<p>Release Date: @(movie.ReleaseDate?.ToString("yyyy-MM-dd") ?? "Unknown")</p>
 					<input type="hidden" name="movieId" value="@movie.Id" />
+					<!-- Button to get more info about specific movie -->
 					<button type="submit">More information</button>	
 				</form>
             </li>

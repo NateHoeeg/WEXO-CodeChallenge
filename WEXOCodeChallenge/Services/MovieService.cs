@@ -29,6 +29,7 @@ namespace WEXOCodeChallenge{
                 PropertyNameCaseInsensitive = true
             });
 
+            //Add the genres to the movies
             var genres = await GetGenresAsync();
 
             foreach (var movie in movieResponse?.Results ?? new List<Movie>())
@@ -64,6 +65,7 @@ namespace WEXOCodeChallenge{
                 PropertyNameCaseInsensitive = true 
             });
 
+            //Add the genres to the movies
             var genres = await GetGenresAsync();
 
             foreach (var movie in movieResponse?.Results ?? new List<Movie>())
@@ -75,6 +77,8 @@ namespace WEXOCodeChallenge{
         }
 
 
+        //Methos to get the details about one specific movie by using the Id 
+        //of the movie.
         public async Task<Movie> GetMovieDetailsAsync(string movieId)
         {
             var requestUri = $"https://api.themoviedb.org/3/movie/{movieId}";
@@ -101,6 +105,8 @@ namespace WEXOCodeChallenge{
             return movie;
         }
 
+
+        //Method to get all genres so they can be added to the movies
         public async Task<List<Genre>> GetGenresAsync()
         {
             var requestUri = $"https://api.themoviedb.org/3/genre/movie/list";

@@ -14,7 +14,9 @@
 
 <h2>Trending Movies This Week</h2>
 
-<!-- Check if there are any movies, if so display them -->
+<!-- Check if there are any movies, if so display them 
+(This code snippet could probably have been generalised with the one in "MovieLists" and "MovieInfo")
+-->
 @if (Model.Any())
 {
     <ul>
@@ -22,11 +24,16 @@
         @foreach (var movie in Model)
         {
             <li>
-                <strong>@movie.Title</strong> (Rating: @movie.VoteAverage)
-                <br />
-                <img src="https://image.tmdb.org/t/p/w200/@movie.PosterPath" alt="@movie.Title" />
-                <p>@movie.Overview</p>
-                <p>Release Date: @(movie.ReleaseDate?.ToString("yyyy-MM-dd") ?? "Unknown")</p>
+                <form action="/Home/GetMovieDetails" method="get">
+                    <strong>@movie.Title</strong> (Rating: @movie.VoteAverage)
+                    <br />
+                    <img src="https://image.tmdb.org/t/p/w200/@movie.PosterPath" alt="@movie.Title" />
+                    <p>@movie.Overview</p>
+                    <p>Release Date: @(movie.ReleaseDate?.ToString("yyyy-MM-dd") ?? "Unknown")</p>
+                    <input type="hidden" name="movieId" value="@movie.Id" />
+                    <!-- Button to get more info about specific movie -->
+                    <button type="submit">More information</button>
+                </form>
             </li>
         }
     </ul>

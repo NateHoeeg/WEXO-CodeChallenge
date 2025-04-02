@@ -10,22 +10,20 @@
 
 
 <!-- Check if there are any movies in the genre, if so display them
-(This method could probably have been generalised with the one in "MovieLists")
+(This code snippet could probably have been generalised with the one in "MovieLists" and "Index")
 -->
 @if (!Model.Equals(null))
 {
     <!--Loop to display gathered movies in the genre with some information about it-->
     <ul>
             <li>
-                <strong>Model.Title</strong> (Rating: Model.VoteAverage)
+                <strong>@Model.Title</strong> (Rating: @Model.VoteAverage)
                 <br />
-                <img src="https://image.tmdb.org/t/p/w200/@Model.PosterPath" alt="Model.Title" />
-            <p style="background-image: url('https://image.tmdb.org/t/p/original/@Model.BackdropPath')"></p>
-                <p>Model.Overview</p>
+                <img src="https://image.tmdb.org/t/p/w200/@Model.PosterPath" alt="@Model.Title" />
+                <!-- The backdrop currently doesn't show, but will possibly be fixed later -->
+                <p style="background-image: url('https://image.tmdb.org/t/p/original/@Model.BackdropPath')"></p>
+                <p>@Model.Overview</p>
                 <p>Release Date: @(Model.ReleaseDate?.ToString("yyyy-MM-dd") ?? "Unknown")</p>
-                <!-- For now it only shows the genre ID's, next step is to show genre names, but as written
-                    in the gerne class, I'm having trouble with that
-                -->
                 <p>Genres: </p>
 			<ul>
 				@foreach (var genre in Model.Genres)

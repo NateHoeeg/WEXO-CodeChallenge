@@ -34,6 +34,7 @@ namespace WEXOCodeChallenge.Controllers
             return View("MovieLists", movies);
         }
 
+        //Gets the details for one specific movie using the movie Id
         public async Task<IActionResult> GetMovieDetails(int movieId)
         {
             Movie specificMovie = await _movieService.GetMovieDetailsAsync(movieId + "");
