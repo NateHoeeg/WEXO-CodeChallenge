@@ -33,7 +33,7 @@ namespace WEXOCodeChallenge{
 
             foreach (var movie in movieResponse?.Results ?? new List<Movie>())
             {
-                movie.Genres = genres.Where(g => movie.GenresIds.Contains(int.Parse(g.Id))).ToList();
+                movie.Genres = genres.Where(g => movie.GenresIds.Contains(g.Id)).ToList();
             }
 
             return movieResponse?.Results ?? new List<Movie>();
@@ -68,7 +68,7 @@ namespace WEXOCodeChallenge{
 
             foreach (var movie in movieResponse?.Results ?? new List<Movie>())
             {
-                movie.Genres = genres.Where(g => movie.GenresIds.Contains(int.Parse(g.Id))).ToList();
+                movie.Genres = genres.Where(g => movie.GenresIds.Contains(g.Id)).ToList();
             }
 
             return movieResponse?.Results ?? new List<Movie>();
@@ -96,12 +96,7 @@ namespace WEXOCodeChallenge{
             Movie movie = JsonSerializer.Deserialize<Movie>(responseBody, new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true
-            });
-
-            var genres = await GetGenresAsync();
-
-            movie.Genres = genres.Where(g => movie.GenresIds.Contains(int.Parse(g.Id))).ToList();
-            
+            });            
 
             return movie;
         }

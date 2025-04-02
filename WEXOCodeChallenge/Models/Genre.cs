@@ -5,15 +5,11 @@ namespace WEXOCodeChallenge.Models
 {
     public class Genre
     {
-        [JsonPropertyName("id")]
-        public string Id { get; set; }
+        [JsonPropertyName("Id")]
+        public int Id { get; set; }
 
-        [JsonPropertyName("name")]
+        [JsonPropertyName("Name")]
         public string Name { get; set; }
 
-        public override string? ToString()
-        {
-            return Name + " ";
-        }
     }
 }

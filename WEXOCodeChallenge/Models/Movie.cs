@@ -31,7 +31,7 @@ namespace WEXOCodeChallenge.Models
 
         [JsonPropertyName("genre_ids")]
         public List<int> GenresIds { get; set; }
-        public List<Genre> Genres { get; internal set; }
+        public List<Genre> Genres { get; set; } = new List<Genre>();
 
     }
 }
