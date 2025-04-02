@@ -15,18 +15,19 @@
 @if (!Model.Equals(null))
 {
 	<div style="background-image: url('https://image.tmdb.org/t/p/original/@Model.BackdropPath'); background-size: cover; background-position: center; min-height: 100vh; padding: 20px;">
-		<ul>
-			<li>
-				<strong>@Model.Title</strong> (Rating: @Model.VoteAverage)
+				<strong class="text-background">@Model.Title - Rating: (@Model.VoteAverage)</strong>
 				<br />
 				<img src="https://image.tmdb.org/t/p/w200/@Model.PosterPath" alt="@Model.Title" />
-				<p>@Model.Overview</p>
-				<p>Release Date: @(Model.ReleaseDate?.ToString("yyyy-MM-dd") ?? "Unknown")</p>
-				<p>Genres: </p>
+				<br />
+				<p class="text-background">@Model.Overview</p>
+				<br />
+				<p class="text-background">Release Date: @(Model.ReleaseDate?.ToString("yyyy-MM-dd") ?? "Unknown")</p>
+				<br />
+				<p class="text-background">Genres: </p>
 				@foreach (var genre in Model.Genres)
 				{
-				<li>@genre.Name</li>
+					<br />
+					<p class="text-background">- @genre.Name</p>
 				}
-		</ul>
 	</div>
 }
