@@ -21,7 +21,7 @@ namespace WEXOCodeChallenge.Controllers
         public async Task<IActionResult> TrendingMovies()
         {
             List<Movie> movies = await _movieService.GetTrendingMoviesAsync();
-            return View("index", movies);
+            return View("TrendingMovies", movies);
         }
 
         //Gets the movies by genre for the genre pages

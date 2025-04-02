@@ -14,23 +14,19 @@
 -->
 @if (!Model.Equals(null))
 {
-    <!--Loop to display gathered movies in the genre with some information about it-->
-    <ul>
-            <li>
-                <strong>@Model.Title</strong> (Rating: @Model.VoteAverage)
-                <br />
-                <img src="https://image.tmdb.org/t/p/w200/@Model.PosterPath" alt="@Model.Title" />
-                <!-- The backdrop currently doesn't show, but will possibly be fixed later -->
-                <p style="background-image: url('https://image.tmdb.org/t/p/original/@Model.BackdropPath')"></p>
-                <p>@Model.Overview</p>
-                <p>Release Date: @(Model.ReleaseDate?.ToString("yyyy-MM-dd") ?? "Unknown")</p>
-                <p>Genres: </p>
-			<ul>
+	<div style="background-image: url('https://image.tmdb.org/t/p/original/@Model.BackdropPath'); background-size: cover; background-position: center; min-height: 100vh; padding: 20px;">
+		<ul>
+			<li>
+				<strong>@Model.Title</strong> (Rating: @Model.VoteAverage)
+				<br />
+				<img src="https://image.tmdb.org/t/p/w200/@Model.PosterPath" alt="@Model.Title" />
+				<p>@Model.Overview</p>
+				<p>Release Date: @(Model.ReleaseDate?.ToString("yyyy-MM-dd") ?? "Unknown")</p>
+				<p>Genres: </p>
 				@foreach (var genre in Model.Genres)
 				{
-					<li>@genre.Name</li>
+				<li>@genre.Name</li>
 				}
-                
-            </li>
-    </ul>
+		</ul>
+	</div>
 }
