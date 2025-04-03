@@ -1,4 +1,5 @@
 ﻿<!-- Check for genreId for each wanted genre, to display correct title -->
+<div class="text-center">
 @if (ViewBag.Genre == "28") {
 	<h1>Action movies</h1>
 	ViewData["Title"] = "Action Movies";
@@ -43,6 +44,7 @@
 	<h1>Documentaries</h1>
 	ViewData["Title"] = "Documentaries";
 }
+</div>
 
 
 @model List<Movie>
@@ -54,13 +56,15 @@
 {
 	<!--I know I don't actually have all the movies currently and only one page, 
 	so the count it wrong. I will try to fix later if I can-->
-	<p>There are: @Model.Count() movies in this genre</p>
+	<div class="text-center">
+		<p class"TextToAlign">There are: @Model.Count() movies in this genre</p>
+	</div>
+	
 
 	<!--Loop to display gathered movies in the genre with some information about it-->
-    <ul>
+    <ul class="Movies">
         @foreach (var movie in Model)
         {
-            <li>
 				<form action="/Home/GetMovieDetails" method="get">
 					<strong>@movie.Title</strong> (Rating: @movie.VoteAverage)
 					<br />
@@ -71,7 +75,6 @@
 					<!-- Button to get more info about specific movie -->
 					<button type="submit" class="Button">More information</button>	
 				</form>
-            </li>
         }
     </ul>
 }

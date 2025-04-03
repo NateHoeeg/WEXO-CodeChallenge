@@ -7,6 +7,12 @@ html {
     background-color: darkcyan;
 }
 
+/*Center lists*/
+ul.Movies {
+    text-align: center;
+}
+
+
 @media (min-width: 768px) {
     html {
     font-size: 16px;

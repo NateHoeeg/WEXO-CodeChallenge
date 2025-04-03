@@ -11,18 +11,20 @@
 
 @model List<Movie>
 
-<h2>Trending Movies This Week</h2>
+<div class="text-center">
+    <h2><strong>Trending Movies This Week</strong></h2>
+</div>
+
 
 <!-- Check if there are any movies, if so display them 
 (This code snippet could probably have been generalised with the one in "MovieLists" and "MovieInfo")
 -->
 @if (Model.Any())
 {
-    <ul>
+    <ul class="Movies">
         <!-- Loop to display trending movies and information about them -->
         @foreach (var movie in Model)
         {
-            <li>
                 <form action="/Home/GetMovieDetails" method="get">
                     <strong>@movie.Title</strong> (Rating: @movie.VoteAverage)
                     <br />
@@ -33,7 +35,6 @@
                     <!-- Button to get more info about specific movie -->
                     <button type="submit" class="Button">More information</button>
                 </form>
-            </li>
         }
     </ul>
 }
