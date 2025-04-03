@@ -4,9 +4,8 @@
 
 <!-- Text at the top of the front page -->
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4"><strong>Welcome</strong></h1>
     <p>To see more information about a specific genre, please use the bar at the top to choose a genre</p>
-    <br />
     <p>Under here, you can see some of the current trending movies</p>
 </div>
 
@@ -32,7 +31,7 @@
                     <p>Release Date: @(movie.ReleaseDate?.ToString("yyyy-MM-dd") ?? "Unknown")</p>
                     <input type="hidden" name="movieId" value="@movie.Id" />
                     <!-- Button to get more info about specific movie -->
-                    <button type="submit">More information</button>
+                    <button type="submit" class="Button">More information</button>
                 </form>
             </li>
         }
